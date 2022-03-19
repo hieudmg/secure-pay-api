@@ -1,0 +1,24 @@
+{
+  "name": "hieudmg/secure-pay",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "hieudmg",
+      "email": "hieudmg@gmail.com"
+    }
+  ],
+  "require": {
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5.18"
+  },
+  "autoload": {
+    "psr-0": {
+      "SecurePayApi\\": "src/"
+    }
+  }
+}
