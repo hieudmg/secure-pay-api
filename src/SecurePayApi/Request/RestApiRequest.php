@@ -24,7 +24,8 @@ abstract class RestApiRequest extends Request
             $this->getEndpoint(),
             $this->getRequestMethod(),
             $this->getRequestData(),
-            $this->getRequestHeaders()
+            $this->getRequestHeaders(),
+            $this->getRequestContentType()
         );
     }
 
@@ -49,5 +50,10 @@ abstract class RestApiRequest extends Request
         return [
             self::HEADER_AUTHORIZATION => 'Bearer ' . $this->credential->getToken(),
         ];
+    }
+
+    protected function getRequestContentType(): string
+    {
+        return self::CONTENT_TYPE_JSON;
     }
 }

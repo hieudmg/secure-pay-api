@@ -30,7 +30,7 @@ abstract class Request
         string $method,
         $data = null,
         $headers = null,
-        $contentType = self::CONTENT_TYPE_JSON
+        $contentType = null
     ) {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -44,7 +44,15 @@ abstract class Request
 
         $requestHeaders = [];
 
+        if ($contentType) {
+            $requestHeaders[] = self::HEADER_CONTENT_TYPE . ': ' . $contentType;
+        }
+
         if (!empty($data)) {
+            if (!$contentType) {
+                $contentType = self::CONTENT_TYPE_JSON;
+                $requestHeaders[] = self::HEADER_CONTENT_TYPE . ': ' . $contentType;
+            }
             if (is_string($data)) {
                 $requestData = $data;
             } elseif (is_array($data)) {
@@ -56,7 +64,6 @@ abstract class Request
             } else {
                 $requestData = json_encode($data);
             }
-            $requestHeaders[] = self::HEADER_CONTENT_TYPE . ': ' . $contentType;
             curl_setopt($ch, CURLOPT_POSTFIELDS, $requestData);
         }
 

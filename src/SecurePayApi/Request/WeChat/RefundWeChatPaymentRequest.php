@@ -1,12 +1,13 @@
 <?php
 
-namespace SecurePayApi\Request\Alipay;
+namespace SecurePayApi\Request\WeChat;
 
 use SecurePayApi\Model\Credential;
-use SecurePayApi\Model\Response\Alipay\RefundAlipayPaymentResponseObject;
+use SecurePayApi\Model\Response\ApplePay\RefundApplePayPaymentResponseObject;
+use SecurePayApi\Model\Response\WeChat\RefundWeChatPaymentResponseObject;
 use SecurePayApi\Request\RestApiRequest;
 
-class RefundAlipayPaymentRequest extends RestApiRequest
+class RefundWeChatPaymentRequest extends RestApiRequest
 {
     protected string $orderId;
 
@@ -18,11 +19,11 @@ class RefundAlipayPaymentRequest extends RestApiRequest
 
     protected function getResponseClass(): string
     {
-        return RefundAlipayPaymentResponseObject::class;
+        return RefundWeChatPaymentResponseObject::class;
     }
 
     protected function getEndpoint(): string
     {
-        return $this->buildUrl(parent::getEndpoint(), 'wallets', 'alipay', 'orders', $this->orderId, 'refunds');
+        return $this->buildUrl(parent::getEndpoint(), 'wallets', 'wechat', 'orders', $this->orderId, 'refunds');
     }
 }
