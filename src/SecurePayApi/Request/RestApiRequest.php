@@ -1,12 +1,11 @@
 <?php
 
-namespace SecurePayApi\Request\CardPayment;
+namespace SecurePayApi\Request;
 
 use SecurePayApi\Endpoint;
 use SecurePayApi\Model\Credential;
-use SecurePayApi\Request\Request;
 
-abstract class CardPaymentRequest extends Request
+abstract class RestApiRequest extends Request
 {
     protected string $version = 'v2';
     protected Credential $credential;

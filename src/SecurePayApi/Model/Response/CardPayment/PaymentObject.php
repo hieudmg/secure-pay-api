@@ -3,7 +3,7 @@
 namespace SecurePayApi\Model\Response\CardPayment;
 
 use SecurePayApi\Model\DataObject;
-use SecurePayApi\Model\Response\Fraud\FraudCheckResult;
+use SecurePayApi\Model\Response\FraudGuard\FraudCheckResultObject;
 
 class PaymentObject extends DataObject
 {
@@ -23,7 +23,7 @@ class PaymentObject extends DataObject
     public const FRAUD_CHECK_TYPE = 'fraudCheckType';
     public const FRAUD_CHECK_RESULT = 'fraudCheckResult';
     protected array $objectMap = [
-        self::FRAUD_CHECK_RESULT => FraudCheckResult::class,
+        self::FRAUD_CHECK_RESULT => FraudCheckResultObject::class,
     ];
 
     /**
@@ -169,9 +169,9 @@ class PaymentObject extends DataObject
     /**
      * Getter for Fraud Check Result.
      *
-     * @return FraudCheckResult
+     * @return FraudCheckResultObject
      */
-    public function getFraudCheckResult(): ?FraudCheckResult
+    public function getFraudCheckResult(): ?FraudCheckResultObject
     {
         return $this->getData(self::FRAUD_CHECK_RESULT);
     }

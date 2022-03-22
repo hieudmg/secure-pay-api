@@ -4,8 +4,9 @@ namespace SecurePayApi\Request\CardPayment;
 
 use SecurePayApi\Model\Credential;
 use SecurePayApi\Model\Response\CardPayment\PaymentInstrumentObject;
+use SecurePayApi\Request\RestApiRequest;
 
-class PaymentInstrumentsRequest extends CardPaymentRequest
+class PaymentInstrumentsRequest extends RestApiRequest
 {
     protected string $customerCode;
 

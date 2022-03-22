@@ -3,8 +3,9 @@
 namespace SecurePayApi\Request\CardPayment;
 
 use SecurePayApi\Model\Response\CardPayment\PreAuthPaymentObject;
+use SecurePayApi\Request\RestApiRequest;
 
-class CreatePreAuthRequest extends CardPaymentRequest
+class CreatePreAuthRequest extends RestApiRequest
 {
     public function getEndpoint(): string
     {

@@ -3,8 +3,9 @@
 namespace SecurePayApi\Request\CardPayment;
 
 use SecurePayApi\Model\Response\CardPayment\PaymentObject;
+use SecurePayApi\Request\RestApiRequest;
 
-class CreatePaymentRequest extends CardPaymentRequest
+class CreatePaymentRequest extends RestApiRequest
 {
     public function getEndpoint(): string
     {

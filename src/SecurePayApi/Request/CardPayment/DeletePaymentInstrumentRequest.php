@@ -4,8 +4,9 @@ namespace SecurePayApi\Request\CardPayment;
 
 use SecurePayApi\Model\Credential;
 use SecurePayApi\Model\Response\CardPayment\DeletePaymentInstrumentObject;
+use SecurePayApi\Request\RestApiRequest;
 
-class DeletePaymentInstrumentRequest extends CardPaymentRequest
+class DeletePaymentInstrumentRequest extends RestApiRequest
 {
     protected string $customerCode;
 

@@ -4,8 +4,9 @@ namespace SecurePayApi\Request\CardPayment;
 
 use SecurePayApi\Model\Credential;
 use SecurePayApi\Model\Response\CardPayment\RefundObject;
+use SecurePayApi\Request\RestApiRequest;
 
-class RefundPaymentRequest extends CardPaymentRequest
+class RefundPaymentRequest extends RestApiRequest
 {
     protected string $orderId;
 

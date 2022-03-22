@@ -1,10 +1,10 @@
 <?php
 
-namespace SecurePayApi\Model\Response\Fraud;
+namespace SecurePayApi\Model\Response\ThreeDSecure;
 
 use SecurePayApi\Model\DataObject;
 
-class ThreedOrderDetailsObject extends DataObject
+class ThreeDOrderDetailsObject extends DataObject
 {
     public const PROVIDER_CLIENT_ID = 'providerClientId';
     public const SESSION_ID = 'sessionId';

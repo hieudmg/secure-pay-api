@@ -3,7 +3,7 @@
 namespace SecurePayApi\Model\Response\CardPayment;
 
 use SecurePayApi\Model\DataObject;
-use SecurePayApi\Model\Response\Fraud\ThreedOrderDetailsObject;
+use SecurePayApi\Model\Response\ThreeDSecure\ThreeDOrderDetailsObject;
 
 class PaymentOrderObject extends DataObject
 {
@@ -16,7 +16,7 @@ class PaymentOrderObject extends DataObject
     public const ORDER_TOKEN = 'orderToken';
     public const THREED_SECURE_DETAILS = 'threedSecureDetails';
     protected array $objectMap = [
-        self::THREED_SECURE_DETAILS => ThreedOrderDetailsObject::class,
+        self::THREED_SECURE_DETAILS => ThreeDOrderDetailsObject::class,
     ];
 
     /**
@@ -90,11 +90,11 @@ class PaymentOrderObject extends DataObject
     }
 
     /**
-     * Getter for Threed Secure Details.
+     * Getter for ThreeD Secure Details.
      *
-     * @return ThreedOrderDetailsObject
+     * @return ThreeDOrderDetailsObject
      */
-    public function getThreedSecureDetails(): ?ThreedOrderDetailsObject
+    public function getThreedSecureDetails(): ?ThreeDOrderDetailsObject
     {
         return $this->getData(self::THREED_SECURE_DETAILS);
     }

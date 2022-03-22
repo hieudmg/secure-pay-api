@@ -1,10 +1,10 @@
 <?php
 
-namespace SecurePayApi\Model\Response\Fraud;
+namespace SecurePayApi\Model\Response\ThreeDSecure;
 
 use SecurePayApi\Model\DataObject;
 
-class ThreedDetailsObject extends DataObject
+class ThreeDDetailsObject extends DataObject
 {
     public const INITIATED_ORDER_ID = 'initiatedOrderId';
 

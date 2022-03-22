@@ -2,10 +2,10 @@
 
 namespace SecurePayApi\Request\CardPayment;
 
-use SecurePayApi\Model\Credential;
 use SecurePayApi\Model\Response\CardPayment\AccountVerificationObject;
+use SecurePayApi\Request\RestApiRequest;
 
-class CreateAccountVerificationRequest extends CardPaymentRequest
+class CreateAccountVerificationRequest extends RestApiRequest
 {
     public function getEndpoint(): string
     {

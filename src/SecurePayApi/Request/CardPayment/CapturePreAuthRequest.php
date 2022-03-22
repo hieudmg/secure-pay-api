@@ -4,8 +4,9 @@ namespace SecurePayApi\Request\CardPayment;
 
 use SecurePayApi\Model\Credential;
 use SecurePayApi\Model\Response\CardPayment\CapturePaymentObject;
+use SecurePayApi\Request\RestApiRequest;
 
-class CapturePreAuthRequest extends CardPaymentRequest
+class CapturePreAuthRequest extends RestApiRequest
 {
     protected string $orderId;
 
