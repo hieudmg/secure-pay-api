@@ -9,9 +9,9 @@ abstract class RestApiRequest extends Request
 {
     protected string $version = 'v2';
     protected Credential $credential;
-    protected array $data;
+    protected ?array $data;
 
-    public function __construct(bool $isLive, Credential $credential, array $data)
+    public function __construct(bool $isLive, Credential $credential, ?array $data = null)
     {
         parent::__construct($isLive);
         $this->credential = $credential;
@@ -39,7 +39,7 @@ abstract class RestApiRequest extends Request
         return self::METHOD_POST;
     }
 
-    protected function getRequestData(): array
+    protected function getRequestData(): ?array
     {
         return $this->data;
     }

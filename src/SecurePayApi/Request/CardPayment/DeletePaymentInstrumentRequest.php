@@ -10,9 +10,9 @@ class DeletePaymentInstrumentRequest extends RestApiRequest
 {
     protected string $customerCode;
 
-    public function __construct(bool $isLive, Credential $credential, array $data, string $customerCode)
+    public function __construct(bool $isLive, Credential $credential, string $customerCode)
     {
-        parent::__construct($isLive, $credential, $data);
+        parent::__construct($isLive, $credential);
         $this->customerCode = $customerCode;
     }
 
