@@ -6,6 +6,7 @@ use SecurePayApi\Request\ClientCredentialsRequest;
 
 class Credential
 {
+    protected bool $isLive;
     protected string $merchantCode;
     protected string $clientId;
     protected string $clientSecret;
@@ -18,6 +19,7 @@ class Credential
         string $clientSecret,
         string $token = null
     ) {
+        $this->isLive = $isLive;
         $this->merchantCode = $merchantCode;
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
@@ -26,6 +28,14 @@ class Credential
             $token = $request->execute()->getAccessToken();
         }
         $this->token = $token;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isLive(): bool
+    {
+        return $this->isLive;
     }
 
     /**
