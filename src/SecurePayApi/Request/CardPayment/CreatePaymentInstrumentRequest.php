@@ -26,23 +26,4 @@ class CreatePaymentInstrumentRequest extends RestApiRequest
     {
         return $this->buildUrl(parent::getEndpoint(), 'customers', $this->customerCode, 'payment-instruments', 'token');
     }
-
-    /**
-     * @param array $headers
-     * @return CreatePaymentInstrumentRequest
-     */
-    public function setRequestHeaders(array $headers): CreatePaymentInstrumentRequest
-    {
-        $this->requestHeaders = $headers;
-        return $this;
-    }
-
-    protected function getRequestHeaders(): array
-    {
-        $parentHeaders = parent::getRequestHeaders();
-        $requestHeaders = array_merge($parentHeaders, [
-            'Content-Type' => 'application/json'
-        ], $this->requestHeaders);
-        return $requestHeaders;
-    }
 }
