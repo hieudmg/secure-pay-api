@@ -10,6 +10,7 @@ abstract class RestApiRequest extends Request
     protected string $version = 'v2';
     protected Credential $credential;
     protected ?array $data;
+    protected array $requestHeaders = [];
 
     public function __construct(bool $isLive, Credential $credential, ?array $data = null)
     {
@@ -47,13 +48,25 @@ abstract class RestApiRequest extends Request
 
     protected function getRequestHeaders(): array
     {
-        return [
+        $requestHeaders = array_merge([
             self::HEADER_AUTHORIZATION => 'Bearer ' . $this->credential->getToken(),
-        ];
+        ], $this->requestHeaders);
+
+        return $requestHeaders;
     }
 
     protected function getRequestContentType(): string
     {
         return self::CONTENT_TYPE_JSON;
+    }
+
+    /**
+     * @param array $headers
+     * @return RestApiRequest
+     */
+    public function setRequestHeaders(array $headers): RestApiRequest
+    {
+        $this->requestHeaders = $headers;
+        return $this;
     }
 }

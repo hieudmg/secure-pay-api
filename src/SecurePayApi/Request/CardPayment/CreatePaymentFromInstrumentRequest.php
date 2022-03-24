@@ -3,7 +3,7 @@
 namespace SecurePayApi\Request\CardPayment;
 
 use SecurePayApi\Model\Credential;
-use SecurePayApi\Model\Response\CardPayment\PaymentInstrumentObject;
+use SecurePayApi\Model\Response\CardPayment\PaymentObject;
 use SecurePayApi\Request\RestApiRequest;
 
 class CreatePaymentFromInstrumentRequest extends RestApiRequest
@@ -18,20 +18,11 @@ class CreatePaymentFromInstrumentRequest extends RestApiRequest
 
     protected function getResponseClass(): string
     {
-        return PaymentInstrumentObject::class;
+        return PaymentObject::class;
     }
 
     protected function getEndpoint(): string
     {
         return $this->buildUrl(parent::getEndpoint(), 'customers', $this->customerCode, 'payments');
-    }
-
-    protected function getRequestHeaders(): array
-    {
-        $parentHeaders = parent::getRequestHeaders();
-        $requestHeaders = array_merge($parentHeaders, [
-          'Content-Type' => 'application/json'
-        ]);
-        return $requestHeaders;
     }
 }

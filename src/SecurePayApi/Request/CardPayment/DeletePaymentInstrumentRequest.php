@@ -18,7 +18,7 @@ class DeletePaymentInstrumentRequest extends RestApiRequest
 
     protected function getEndpoint(): string
     {
-        return $this->buildUrl('customers', $this->customerCode, 'payment-instruments', 'token');
+        return $this->buildUrl(parent::getEndpoint(), 'customers', $this->customerCode, 'payment-instruments', 'token');
     }
 
     protected function getRequestMethod(): string
