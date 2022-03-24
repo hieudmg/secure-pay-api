@@ -5,6 +5,7 @@ namespace SecurePayApi\Request;
 use SecurePayApi\Endpoint;
 use SecurePayApi\Exception\InvalidResponseException;
 use SecurePayApi\Exception\RequestException;
+use SecurePayApi\Exception\UnauthorizedException;
 use SecurePayApi\Model\Response\ClientCredentialsData;
 use SecurePayApi\Model\Response\ErrorParser;
 
@@ -23,6 +24,7 @@ class ClientCredentialsRequest extends Request
     /**
      * @throws RequestException
      * @throws InvalidResponseException
+     * @throws UnauthorizedException
      */
     public function execute()
     {

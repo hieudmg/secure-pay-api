@@ -3,7 +3,12 @@
 namespace SecurePayApi\Request;
 
 use SecurePayApi\Endpoint;
+use SecurePayApi\Exception\InvalidResponseException;
+use SecurePayApi\Exception\RequestException;
+use SecurePayApi\Exception\UnauthorizedException;
 use SecurePayApi\Model\Credential;
+use SecurePayApi\Model\DataObject;
+use SecurePayApi\Model\Response\Error\ResponseError;
 
 abstract class RestApiRequest extends Request
 {
@@ -18,6 +23,12 @@ abstract class RestApiRequest extends Request
         $this->data = $data;
     }
 
+    /**
+     * @return DataObject|ResponseError
+     * @throws InvalidResponseException
+     * @throws RequestException
+     * @throws UnauthorizedException
+     */
     public function execute()
     {
         return $this->request(
@@ -55,15 +66,5 @@ abstract class RestApiRequest extends Request
     protected function getRequestContentType(): string
     {
         return self::CONTENT_TYPE_JSON;
-    }
-
-    /**
-     * @param array $headers
-     * @return RestApiRequest
-     */
-    public function setRequestHeaders(array $headers): RestApiRequest
-    {
-        $this->requestHeaders = $headers;
-        return $this;
     }
 }

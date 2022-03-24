@@ -2,6 +2,8 @@
 
 namespace SecurePayApi\Model;
 
+use SecurePayApi\Exception\InvalidResponseException;
+use SecurePayApi\Exception\RequestException;
 use SecurePayApi\Request\ClientCredentialsRequest;
 
 class Credential
@@ -12,12 +14,22 @@ class Credential
     protected string $clientSecret;
     protected string $token;
 
+    /**
+     * @param bool $isLive
+     * @param string $merchantCode
+     * @param string $clientId
+     * @param string $clientSecret
+     * @param string|null $token
+     *
+     * @throws InvalidResponseException
+     * @throws RequestException
+     */
     public function __construct(
         bool $isLive,
         string $merchantCode,
         string $clientId,
         string $clientSecret,
-        string $token = null
+        ?string $token = null
     ) {
         $this->isLive = $isLive;
         $this->merchantCode = $merchantCode;
@@ -39,9 +51,9 @@ class Credential
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getToken(): string
+    public function getToken(): ?string
     {
         return $this->token;
     }

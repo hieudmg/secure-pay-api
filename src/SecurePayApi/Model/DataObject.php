@@ -7,7 +7,10 @@ class DataObject
     protected array $data;
     protected array $objectMap = [];
 
-    public function __construct($data = [])
+    /**
+     * @param array $data
+     */
+    public function __construct(array $data = [])
     {
         foreach ($this->objectMap as $key => $class) {
             if (array_key_exists($key, $data)) {
@@ -17,6 +20,11 @@ class DataObject
         $this->data = $data;
     }
 
+    /**
+     * @param string $key
+     *
+     * @return mixed|null
+     */
     public function getData(string $key = '')
     {
         if (!empty($key)) {
@@ -29,6 +37,9 @@ class DataObject
         return $this->data;
     }
 
+    /**
+     * @return array
+     */
     public function toArray(): array
     {
         $result = [];

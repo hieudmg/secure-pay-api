@@ -9,7 +9,16 @@ use SecurePayApi\Model\Response\Error\ResponseError;
 
 class ErrorParser
 {
-    public static function parse($code, $data)
+    /**
+     * @param int|string $code
+     * @param array $data
+     *
+     * @return ResponseError
+     *
+     * @throws InvalidResponseException
+     * @throws UnauthorizedException
+     */
+    public static function parse($code, array $data): ResponseError
     {
         if ($code == 400 || $code == 500) {
             $errors = [];

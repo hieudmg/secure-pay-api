@@ -4,6 +4,8 @@ namespace SecurePayApi\Request;
 
 use SecurePayApi\Exception\InvalidResponseException;
 use SecurePayApi\Exception\RequestException;
+use SecurePayApi\Exception\UnauthorizedException;
+use SecurePayApi\Model\Response\Error\ResponseError;
 use SecurePayApi\Model\Response\ErrorParser;
 
 abstract class Request
@@ -25,12 +27,25 @@ abstract class Request
 
     abstract public function execute();
 
+    /**
+     * @param string $url
+     * @param string $method
+     * @param array|string|null $data
+     * @param array|null $headers
+     * @param string|null $contentType
+     *
+     * @return mixed|ResponseError
+     *
+     * @throws InvalidResponseException
+     * @throws RequestException
+     * @throws UnauthorizedException
+     */
     protected function request(
         string $url,
         string $method,
         $data = null,
-        $headers = null,
-        $contentType = null
+        ?array $headers = null,
+        ?string $contentType = null
     ) {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -96,6 +111,12 @@ abstract class Request
         return ErrorParser::parse($httpCode, $resultArray);
     }
 
+    /**
+     * Response Class must extends DataObject class
+     * @see \SecurePayApi\Model\DataObject
+     *
+     * @return string
+     */
     abstract protected function getResponseClass(): string;
 
     protected function buildUrl(string ...$parts): string
