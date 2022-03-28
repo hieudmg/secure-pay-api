@@ -12,7 +12,7 @@ class ApplePayPaymentRequest extends RestApiRequest
         return ApplePayPaymentResponseObject::class;
     }
 
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         return $this->buildUrl(parent::getEndpoint(), 'wallets', 'applepay', 'payments');
     }

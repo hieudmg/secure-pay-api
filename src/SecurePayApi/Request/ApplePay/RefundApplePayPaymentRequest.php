@@ -21,7 +21,7 @@ class RefundApplePayPaymentRequest extends RestApiRequest
         return RefundApplePayPaymentResponseObject::class;
     }
 
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         return $this->buildUrl(parent::getEndpoint(), 'wallets', 'applepay', 'orders', $this->orderId, 'refunds');
     }

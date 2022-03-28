@@ -21,7 +21,7 @@ class CreatePaymentFromInstrumentRequest extends RestApiRequest
         return PaymentObject::class;
     }
 
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         return $this->buildUrl(parent::getEndpoint(), 'customers', $this->customerCode, 'payments');
     }

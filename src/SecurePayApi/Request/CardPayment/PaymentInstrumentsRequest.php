@@ -16,12 +16,12 @@ class PaymentInstrumentsRequest extends RestApiRequest
         $this->customerCode = $customerCode;
     }
 
-    protected function getRequestMethod(): string
+    public function getRequestMethod(): string
     {
         return self::METHOD_GET;
     }
 
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         return $this->buildUrl(parent::getEndpoint(), 'customers', $this->customerCode, 'payment-instruments');
     }

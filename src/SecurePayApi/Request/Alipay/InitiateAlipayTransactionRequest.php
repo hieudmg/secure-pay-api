@@ -12,7 +12,7 @@ class InitiateAlipayTransactionRequest extends RestApiRequest
         return InitiateAlipayTransactionResponseObject::class;
     }
 
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         return $this->buildUrl(parent::getEndpoint(), 'wallets', 'alipay', 'payments', 'initiate');
     }

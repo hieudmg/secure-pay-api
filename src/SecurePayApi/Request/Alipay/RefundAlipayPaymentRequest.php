@@ -21,7 +21,7 @@ class RefundAlipayPaymentRequest extends RestApiRequest
         return RefundAlipayPaymentResponseObject::class;
     }
 
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         return $this->buildUrl(parent::getEndpoint(), 'wallets', 'alipay', 'orders', $this->orderId, 'refunds');
     }

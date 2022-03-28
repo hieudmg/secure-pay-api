@@ -21,7 +21,7 @@ class RetrieveAlipayOrderDetailsRequest extends RestApiRequest
         return RetrieveAlipayOrderDetailsResponseObject::class;
     }
 
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         return $this->buildUrl(
                 parent::getEndpoint(),
@@ -32,7 +32,7 @@ class RetrieveAlipayOrderDetailsRequest extends RestApiRequest
             ) . '?merchantCode=' . $this->credential->getMerchantCode();
     }
 
-    protected function getRequestMethod(): string
+    public function getRequestMethod(): string
     {
         return self::METHOD_GET;
     }

@@ -40,30 +40,30 @@ abstract class RestApiRequest extends Request
         );
     }
 
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         $endpoint = $this->isLive ? Endpoint::ENDPOINT_API_LIVE : Endpoint::ENDPOINT_API_SANDBOX;
         return $this->buildUrl($endpoint, $this->version);
     }
 
-    protected function getRequestMethod(): string
+    public function getRequestMethod(): string
     {
         return self::METHOD_POST;
     }
 
-    protected function getRequestData(): ?array
+    public function getRequestData(): ?array
     {
         return $this->data;
     }
 
-    protected function getRequestHeaders(): array
+    public function getRequestHeaders(): array
     {
         return [
             self::HEADER_AUTHORIZATION => 'Bearer ' . $this->credential->getToken(),
         ];
     }
 
-    protected function getRequestContentType(): string
+    public function getRequestContentType(): string
     {
         return self::CONTENT_TYPE_JSON;
     }

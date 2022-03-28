@@ -21,7 +21,7 @@ class RetrieveWeChatOrderDetailsRequest extends RestApiRequest
         return RetrieveWeChatOrderDetailsResponseObject::class;
     }
 
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         return $this->buildUrl(
                 parent::getEndpoint(),
@@ -32,7 +32,7 @@ class RetrieveWeChatOrderDetailsRequest extends RestApiRequest
             ) . '?merchantCode=' . $this->credential->getMerchantCode();
     }
 
-    protected function getRequestMethod(): string
+    public function getRequestMethod(): string
     {
         return self::METHOD_GET;
     }

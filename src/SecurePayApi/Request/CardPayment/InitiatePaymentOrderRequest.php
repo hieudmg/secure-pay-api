@@ -7,7 +7,7 @@ use SecurePayApi\Request\RestApiRequest;
 
 class InitiatePaymentOrderRequest extends RestApiRequest
 {
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         return $this->buildUrl(parent::getEndpoint(), 'payments', 'orders', 'initiate');
     }

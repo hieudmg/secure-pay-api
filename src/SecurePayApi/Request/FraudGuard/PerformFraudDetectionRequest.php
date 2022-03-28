@@ -12,7 +12,7 @@ class PerformFraudDetectionRequest extends RestApiRequest
         return PerformFraudDetectionResponseObject::class;
     }
 
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         return $this->buildUrl(parent::getEndpoint(), 'antifraud', 'check');
     }

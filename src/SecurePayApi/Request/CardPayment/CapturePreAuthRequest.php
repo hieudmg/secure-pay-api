@@ -16,7 +16,7 @@ class CapturePreAuthRequest extends RestApiRequest
         $this->orderId = $orderId;
     }
 
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         return $this->buildUrl(parent::getEndpoint(), 'payments', 'preauths', $this->orderId, 'capture');
     }

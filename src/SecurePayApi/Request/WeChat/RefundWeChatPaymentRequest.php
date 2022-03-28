@@ -22,7 +22,7 @@ class RefundWeChatPaymentRequest extends RestApiRequest
         return RefundWeChatPaymentResponseObject::class;
     }
 
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         return $this->buildUrl(parent::getEndpoint(), 'wallets', 'wechat', 'orders', $this->orderId, 'refunds');
     }

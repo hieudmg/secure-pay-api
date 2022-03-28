@@ -12,7 +12,7 @@ class InitiateSessionRequest extends RestApiRequest
         return InitiateSessionResponseObject::class;
     }
 
-    protected function getEndpoint(): string
+    public function getEndpoint(): string
     {
         return $this->buildUrl(parent::getEndpoint(), 'wallets', 'applepay', 'sessions', 'initiate');
     }
