@@ -46,6 +46,14 @@ class DataObject
         foreach ($this->data as $key => $value) {
             if ($value instanceof DataObject) {
                 $result[$key] = $value->toArray();
+            } elseif (is_array($value)) {
+                foreach ($value as $itemKey => $item) {
+                    if ($item instanceof DataObject) {
+                        $result[$key][$itemKey] = $item->toArray();
+                    } else {
+                        $result[$key][$itemKey] = $item;
+                    }
+                }
             } else {
                 $result[$key] = $value;
             }
