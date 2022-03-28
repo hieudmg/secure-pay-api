@@ -9,11 +9,15 @@ use SecurePayApi\Request\RestApiRequest;
 class DeletePaymentInstrumentRequest extends RestApiRequest
 {
     protected string $customerCode;
+    protected string $token;
+    protected string $ip;
 
-    public function __construct(bool $isLive, Credential $credential, string $customerCode)
+    public function __construct(bool $isLive, Credential $credential, string $customerCode, string $token, string $ip)
     {
         parent::__construct($isLive, $credential);
         $this->customerCode = $customerCode;
+        $this->token = $token;
+        $this->ip = $ip;
     }
 
     public function getEndpoint(): string
@@ -24,6 +28,14 @@ class DeletePaymentInstrumentRequest extends RestApiRequest
     public function getRequestMethod(): string
     {
         return self::METHOD_DELETE;
+    }
+
+    public function getRequestHeaders(): array
+    {
+        $headers = parent::getRequestHeaders();
+        $headers['token'] = $this->token;
+        $headers['ip'] = $this->ip;
+        return $headers;
     }
 
     protected function getResponseClass(): string

@@ -9,11 +9,13 @@ use SecurePayApi\Request\RestApiRequest;
 class PaymentInstrumentsRequest extends RestApiRequest
 {
     protected string $customerCode;
+    protected string $ip;
 
-    public function __construct(bool $isLive, Credential $credential, string $customerCode)
+    public function __construct(bool $isLive, Credential $credential, string $customerCode, string $ip)
     {
         parent::__construct($isLive, $credential);
         $this->customerCode = $customerCode;
+        $this->ip = $ip;
     }
 
     public function getRequestMethod(): string
@@ -24,6 +26,13 @@ class PaymentInstrumentsRequest extends RestApiRequest
     public function getEndpoint(): string
     {
         return $this->buildUrl(parent::getEndpoint(), 'customers', $this->customerCode, 'payment-instruments');
+    }
+
+    public function getRequestHeaders(): array
+    {
+        $headers = parent::getRequestHeaders();
+        $headers['ip'] = $this->ip;
+        return $headers;
     }
 
     protected function getResponseClass(): string
