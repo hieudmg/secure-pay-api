@@ -10,4 +10,6 @@ class Endpoint
     public const ENDPOINT_AUTH_LIVE = 'https://welcome.api2.auspost.com.au/oauth/token';
     public const URL_SANDBOX_SCRIPT = 'https://payments-stest.npe.auspost.zone/v3/ui/client/securepay-ui.min.js';
     public const URL_LIVE_SCRIPT = 'https://payments.auspost.net.au/v3/ui/client/securepay-ui.min.js';
+    public const URL_SANDBOX_3DS2_SCRIPT = 'https://test.api.securepay.com.au/threeds-js/securepay-threeds.js';
+    public const URL_LIVE_3DS2_SCRIPT = 'https://api.securepay.com.au/threeds-js/securepay-threeds.js';
 }
