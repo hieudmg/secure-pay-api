@@ -14,7 +14,7 @@ class DataObject
     {
         foreach ($this->objectMap as $key => $class) {
             if (array_key_exists($key, $data)) {
-                $data[$key] = new $class($data);
+                $data[$key] = new $class($data[$key]);
             }
         }
         $this->data = $data;
